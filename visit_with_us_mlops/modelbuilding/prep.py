@@ -47,17 +47,17 @@ X_train, X_test, y_train, y_test = train_test_split(
 processed_path = "visit_with_us_mlops/data/processed"
 os.makedirs(processed_path, exist_ok=True)
 
-X_train.to_csv("X_train.csv",index=False)
-X_test.to_csv("X_test.csv",index=False)
-y_train.to_csv("y_train.csv",index=False)
-y_test.to_csv("y_test.csv",index=False)
+X_train.to_csv(f"{processed_path}/X_train.csv", index=False)
+X_test.to_csv(f"{processed_path}/X_test.csv", index=False)
+y_train.to_csv(f"{processed_path}/y_train.csv", index=False)
+y_test.to_csv(f"{processed_path}/y_test.csv", index=False)
 
 files = ["X_train.csv","X_test.csv","y_train.csv","y_test.csv"]
 
-for file_path in files:
+for file in files:
     api.upload_file(
-        path_or_fileobj=processed_path,
-        path_in_repo=processed_path.split("/")[-1],  # just the filename
+        path_or_fileobj=f"{processed_path}/{file}",
+        path_in_repo=f"data/processed/{file}",
         repo_id="chandrachurhghosh/tourism-mlops-dataset",
         repo_type="dataset",
     )
