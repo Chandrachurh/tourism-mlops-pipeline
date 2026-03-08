@@ -44,7 +44,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 )
 
 # Save processed train and test datasets locally
-processed_path = "/content/visit_with_us_mlops/data/processed"
+processed_path = "visit_with_us_mlops/data/processed"
 os.makedirs(processed_path, exist_ok=True)
 
 X_train.to_csv("X_train.csv",index=False)
