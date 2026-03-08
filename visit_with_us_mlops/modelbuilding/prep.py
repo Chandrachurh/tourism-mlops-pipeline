@@ -12,7 +12,7 @@ from huggingface_hub import login, HfApi
 
 # Define constants for the dataset and output paths
 api = HfApi(token=os.getenv("HF_TOKEN"))
-DATASET_PATH = "hf://datasets/chandrachurhghosh/tourism-package-prediction/rawdata/tourism.csv"
+DATASET_PATH = "hf://datasets/chandrachurhghosh/tourism-package-prediction/data/raw/tourism.csv"
 
 # Load the dataset directly from the Hugging Face data space
 df = pd.read_csv(DATASET_PATH)
