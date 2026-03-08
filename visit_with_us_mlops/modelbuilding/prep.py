@@ -27,9 +27,6 @@ for col in ['DurationOfPitch', 'NumberOfFollowups', 'PreferredPropertyStar', 'Nu
     if col in df.columns:
         df[col] = df[col].astype(int)
 
-# Encode categorical columns
-df = pd.get_dummies(df, columns=['TypeofContact', 'Occupation', 'Gender', 'ProductPitched', 'MaritalStatus', 'Designation'], drop_first=True)
-
 # Define features (X) and target (y)
 X = df.drop('ProdTaken', axis=1)
 y = df['ProdTaken']
